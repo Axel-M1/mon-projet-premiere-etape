@@ -3,69 +3,212 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mon Projet - Première Étape</title>
+    <title>Axel Moubacir | SaaS Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="hero">
-      <nav class="nav container">
-        <div class="logo">MonProjet</div>
-        <a href="#contact" class="btn btn-primary">Démarrer</a>
-      </nav>
-
-      <div class="hero-content container">
-        <div class="hero-text">
-          <p class="eyebrow">Première étape</p>
-          <h1>Créez une base solide pour votre projet.</h1>
-          <p class="subtitle">
-            Cette page sert de point de départ propre, moderne et simple à développer.
-          </p>
-          <div class="cta-row">
-            <button class="btn btn-primary" id="start-btn">Voir l'étape suivante</button>
-            <a href="#contact" class="btn btn-secondary">Contact</a>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand-logo">A</div>
+          <div>
+            <div class="brand-name">Axel Moubacir</div>
+            <small>Portfolio SISR</small>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="card-badge">Projet</div>
-          <h2>Checklist</h2>
-          <ul>
-            <li>✅ Idée claire</li>
-            <li>✅ Structure de base</li>
-            <li>✅ Dépôt Git initialisé</li>
-            <li>✅ Première version fonctionnelle</li>
-          </ul>
+        <nav class="sidebar-nav">
+          <a class="nav-item active" href="#overview">Overview</a>
+          <a class="nav-item" href="#tickets">Tickets</a>
+          <a class="nav-item" href="#skills">Compétences</a>
+          <a class="nav-item" href="#projects">Projets</a>
+          <a class="nav-item" href="#contact">Contact</a>
+        </nav>
+
+        <div class="sidebar-card">
+          <div class="status-header">
+            <span class="status-dot"></span>
+            En ligne
+          </div>
+          <div class="status-row">
+            <span>SLA</span>
+            <strong>99.9%</strong>
+          </div>
+          <div class="status-row">
+            <span>Alertes</span>
+            <strong>2</strong>
+          </div>
         </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">PROJET FINAL DE STAGE</p>
+            <h1>Centre d’Excellence & d’Industrialisation Système</h1>
+          </div>
+          <div class="topbar-actions">
+            <button class="ghost-btn">Système OK</button>
+            <a class="primary-btn" href="./cv.html" target="_blank">CV</a>
+          </div>
+        </header>
+
+        <section id="overview" class="overview-grid">
+          <div class="panel hero-panel">
+            <div class="panel-header">
+              <span class="label">Profil</span>
+              <span class="pill success">En ligne</span>
+            </div>
+            <h2>Axel Moubachir</h2>
+            <p>
+              Administrateur système & réseau, spécialisé dans les infrastructures critiques,
+              la sécurisation périmétrique, l’automatisation et la supervision de services.
+            </p>
+            <div class="hero-metrics">
+              <div>
+                <strong>4</strong>
+                <span>tickets</span>
+              </div>
+              <div>
+                <strong>5</strong>
+                <span>services</span>
+              </div>
+              <div>
+                <strong>99.9%</strong>
+                <span>SLA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel small-panel">
+            <div class="panel-header">
+              <span class="label">CPU / RAM</span>
+              <span class="pill neutral">Live</span>
+            </div>
+            <div class="chart-box">
+              <div class="bars">
+                <span style="height: 46%"></span>
+                <span style="height: 61%"></span>
+                <span style="height: 75%"></span>
+                <span style="height: 53%"></span>
+                <span style="height: 82%"></span>
+                <span style="height: 69%"></span>
+                <span style="height: 88%"></span>
+              </div>
+            </div>
+            <div class="chart-legend">
+              <span><i class="dot blue"></i> CPU</span>
+              <span><i class="dot violet"></i> RAM</span>
+            </div>
+          </div>
+
+          <div class="panel uptime-panel">
+            <div class="panel-header">
+              <span class="label">Uptime</span>
+              <span class="pill warning">Monitoring</span>
+            </div>
+            <div class="uptime-ring">
+              <div class="ring-inner">99.9%</div>
+            </div>
+            <div class="service-list">
+              <span>DC01</span>
+              <span>FW01</span>
+              <span>LB01</span>
+              <span>ANSIBLE01</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="tickets" class="dashboard-section">
+          <div class="section-head">
+            <h3>Tickets & missions</h3>
+            <span class="pill info">SISR</span>
+          </div>
+
+          <div class="card-grid two-col">
+            <article class="info-card ticket-card">
+              <span class="tag-soft">#101</span>
+              <h4>Domaine Samba4 AD & GPO Windows</h4>
+              <p>Administration du domaine, sécurisation des postes Windows et centralisation des politiques de sécurité.</p>
+            </article>
+            <article class="info-card ticket-card">
+              <span class="tag-soft">#102</span>
+              <h4>Sécurisation périmétrique pfSense & VPN</h4>
+              <p>Protection réseau, filtrage, accès distant sécurisé, contrôle d’entrée et segmentation du trafic.</p>
+            </article>
+            <article class="info-card ticket-card">
+              <span class="tag-soft">#103</span>
+              <h4>Industrialisation IaC avec Ansible & Semaphore</h4>
+              <p>Standardisation des configurations et automatisation de l’infrastructure via IaC.</p>
+            </article>
+            <article class="info-card ticket-card">
+              <span class="tag-soft">#104</span>
+              <h4>Supervision Zabbix & gestion de parc GLPI</h4>
+              <p>Supervision proactive, alerting et gestion du parc matériel et logiciel en environnement critique.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="skills" class="dashboard-section">
+          <div class="section-head">
+            <h3>Compétences</h3>
+            <span class="pill info">Badges</span>
+          </div>
+
+          <div class="badge-grid">
+            <span class="badge">Linux</span>
+            <span class="badge">Samba4</span>
+            <span class="badge">pfSense</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Ansible</span>
+            <span class="badge">Windows Server</span>
+            <span class="badge">GPO</span>
+            <span class="badge">Zabbix</span>
+            <span class="badge">GLPI</span>
+            <span class="badge">VPN</span>
+            <span class="badge">Monitoring</span>
+            <span class="badge">Automation</span>
+          </div>
+        </section>
+
+        <section id="projects" class="dashboard-section">
+          <div class="section-head">
+            <h3>Centre d’excellence</h3>
+            <span class="pill neutral">Projet final</span>
+          </div>
+
+          <div class="card-grid three-col">
+            <article class="info-card">
+              <span class="tag-soft">Contexte</span>
+              <h4>Projet final de stage</h4>
+              <p>Portfolio sous forme d’outil SaaS d’entreprise pour exposer les compétences, missions et outils SISR.</p>
+            </article>
+            <article class="info-card">
+              <span class="tag-soft">Technologies</span>
+              <h4>Stack d’infra</h4>
+              <p>Linux, Windows, pfSense, Ansible, Docker, Zabbix, GLPI, supervision réseau et sécurité.</p>
+            </article>
+            <article class="info-card">
+              <span class="tag-soft">Contact</span>
+              <h4>Axel Moubachir</h4>
+              <p>Pour : Axel MOUBACHIR • Août 2026</p>
+              <p class="mail">axel.moubachir@ynov.com</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer id="contact" class="bottom-footer">
+      <div>
+        <span>© <span id="year"></span> Axel Moubachir</span>
       </div>
-    </header>
-
-    <main>
-      <section class="features container">
-        <div class="feature">
-          <span>01</span>
-          <h3>Structure simple</h3>
-          <p>Une base lisible et facile à faire évoluer.</p>
-        </div>
-        <div class="feature">
-          <span>02</span>
-          <h3>Code propre</h3>
-          <p>Des fichiers séparés pour le HTML, le CSS et le JS.</p>
-        </div>
-        <div class="feature">
-          <span>03</span>
-          <h3>Prêt pour GitHub</h3>
-          <p>Un dépôt local initialisé pour la suite du travail.</p>
-        </div>
-      </section>
-    </main>
-
-    <footer id="contact" class="footer">
-      <div class="container footer-content">
-        <p>© 2026 MonProjet</p>
-        <span>Axel Moubacir</span>
+      <div class="footer-meta">
+        <a href="mailto:axel.moubachir@ynov.com">axel.moubachir@ynov.com</a>
+        <a href="./cv.html" target="_blank">CV</a>
       </div>
     </footer>
 
