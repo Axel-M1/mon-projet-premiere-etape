@@ -411,11 +411,15 @@ web02.dmz : ok=2  changed=1  failed=0  [IDEMPOTENCE VERIFIED]`
 
     document.addEventListener('keydown', (e) => {
       if (!isRunning) return;
+      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(e.key)) {
+        e.preventDefault(); // Stop browser window from scrolling while playing Snake
+      }
       if (e.key === 'ArrowUp' && dy === 0) { dx = 0; dy = -1; }
       else if (e.key === 'ArrowDown' && dy === 0) { dx = 0; dy = 1; }
       else if (e.key === 'ArrowLeft' && dx === 0) { dx = -1; dy = 0; }
       else if (e.key === 'ArrowRight' && dx === 0) { dx = 1; dy = 0; }
     });
+
 
     window.triggerSnakeDir = function(dir) {
       if (!isRunning) return;
