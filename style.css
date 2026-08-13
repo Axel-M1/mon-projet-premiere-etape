@@ -811,16 +811,17 @@ body {
   margin-bottom: 14px;
 }
 
-.rule-toggle-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px;
-  background: #ffffff;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  margin-top: 10px;
+#snakeCanvas {
+  max-width: 100%;
+  height: auto;
+  touch-action: none;
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-modal);
+  cursor: pointer;
 }
+
 
 /* MODAL OVERLAY */
 .modal-overlay {

@@ -424,7 +424,43 @@ web02.dmz : ok=2  changed=1  failed=0  [IDEMPOTENCE VERIFIED]`
       if (dir === 'LEFT' && dx === 0) { dx = -1; dy = 0; }
       if (dir === 'RIGHT' && dx === 0) { dx = 1; dy = 0; }
     };
+
+    // TOUCH SWIPE GESTURE CONTROLS FOR MOBILE DEVICES
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    snakeCanvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: false });
+
+    snakeCanvas.addEventListener('touchmove', (e) => {
+      if (isRunning) e.preventDefault(); // Prevent page scroll while playing
+    }, { passive: false });
+
+    snakeCanvas.addEventListener('touchend', (e) => {
+      if (!isRunning || e.changedTouches.length === 0) return;
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+      const minDistance = 15; // px
+      
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (Math.abs(deltaX) > minDistance) {
+          triggerSnakeDir(deltaX > 0 ? 'RIGHT' : 'LEFT');
+        }
+      } else {
+        if (Math.abs(deltaY) > minDistance) {
+          triggerSnakeDir(deltaY > 0 ? 'DOWN' : 'UP');
+        }
+      }
+    }, { passive: false });
   }
 
 });
+
 
