@@ -1,216 +1,470 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Axel Moubacir | SaaS Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="brand-block">
-          <div class="brand-logo">A</div>
-          <div>
-            <div class="brand-name">Axel Moubacir</div>
-            <small>Portfolio SISR</small>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synaptic Cloud ITSM v3.0 Pro | Axel Moubachir — Portfolio SISR</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="itsm-layout">
+    
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="itsm-sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-logo-badge">S</div>
+        <div class="brand-info">
+          <span class="brand-name">SYNAPTIC CLOUD</span>
+          <span class="brand-sub">ITSM &amp; Infra Console</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section-title">Navigation principale</div>
+      
+      <nav class="sidebar-menu">
+        <a class="nav-link active" data-tab="dashboard">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+          <span>Dashboard &amp; Infra</span>
+        </a>
+
+        <a class="nav-link" data-tab="itsm">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5zM5 14a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 00-2-2H5z"/></svg>
+          <span>Centre Tickets GLPI</span>
+          <span class="nav-badge blue">4 Projets</span>
+        </a>
+
+        <a class="nav-link" data-tab="terminal">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Terminal SISR CLI</span>
+          <span class="nav-badge green">Shell</span>
+        </a>
+
+        <a class="nav-link" data-tab="osint">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span>Auditeur OSINT Live</span>
+          <span class="nav-badge amber">Tracker</span>
+        </a>
+
+        <a class="nav-link" data-tab="challenge">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <span>Simulateur pfSense</span>
+          <span class="nav-badge green">Jeu 2min</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="operator-card">
+          <div class="operator-avatar">AM</div>
+          <div class="operator-details">
+            <span class="operator-name">Axel Moubachir</span>
+            <span class="operator-role">SysAdmin • BTS SISR</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN BODY -->
+    <div class="itsm-main">
+      
+      <!-- HEADER TOPBAR -->
+      <header class="itsm-header">
+        <div class="header-left-group">
+          <button class="mobile-menu-toggle" id="menuToggle">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+
+          <div class="env-tag">
+            <span class="env-dot"></span>
+            <span>PROD • eu-west-3 (Paris)</span>
           </div>
         </div>
 
-        <nav class="sidebar-nav">
-          <a class="nav-item active" href="#overview">Overview</a>
-          <a class="nav-item" href="#tickets">Tickets</a>
-          <a class="nav-item" href="#skills">Compétences</a>
-          <a class="nav-item" href="#projects">Projets</a>
-          <a class="nav-item" href="#contact">Contact</a>
-        </nav>
+        <div class="header-search">
+          <svg class="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" placeholder="Rechercher une commande, projet, ticket..." id="searchInput" />
+          <span class="search-shortcut">⌘K</span>
+        </div>
 
-        <div class="sidebar-card">
-          <div class="status-header">
-            <span class="status-dot"></span>
-            En ligne
+        <div class="header-right-group">
+          <button class="action-btn secondary" id="sysHealthBtn">
+            <span class="status-pill online">🟢 SLA 99.9%</span>
+          </button>
+
+          <a href="./cv.html" target="_blank" class="action-btn primary">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span>Consulter le CV</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT AREA -->
+      <div class="itsm-page-body">
+
+        <!-- TAB 1: DASHBOARD -->
+        <div class="tab-pane active" id="tab-dashboard">
+          <div class="page-title-block">
+            <div>
+              <h1>Vue d'ensemble de l'Infrastructure &amp; Compétences</h1>
+              <p>Météo des nœuds virtuels, métriques de supervision et profil de l'administrateur Axel Moubachir.</p>
+            </div>
+            <div>
+              <span class="status-pill online">Réseau Opérationnel</span>
+            </div>
           </div>
-          <div class="status-row">
-            <span>SLA</span>
-            <strong>99.9%</strong>
+
+          <!-- STATS OVERVIEW CARDS -->
+          <div class="grid-4">
+            <div class="stat-card">
+              <div class="stat-header">
+                <span>Disponibilité Global</span>
+                <div class="stat-icon blue">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+              </div>
+              <div class="stat-value-box">
+                <div class="stat-value">99.9%</div>
+                <div class="stat-subtext">Haute disponibilité HAProxy</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-header">
+                <span>Projets BTS Validés</span>
+                <div class="stat-icon green">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+              </div>
+              <div class="stat-value-box">
+                <div class="stat-value">4 / 4</div>
+                <div class="stat-subtext">SLA 100% Respecté</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-header">
+                <span>Serveurs Supervisés</span>
+                <div class="stat-icon amber">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+              <div class="stat-value-box">
+                <div class="stat-value">5 Nœuds</div>
+                <div class="stat-subtext">DC01, FW01, LB01, WEB01/02</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-header">
+                <span>Visiteurs Identifiés</span>
+                <div class="stat-icon purple">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                </div>
+              </div>
+              <div class="stat-value-box">
+                <div class="stat-value" id="visitorCountStat">1</div>
+                <div class="stat-subtext">Inspection OSINT Active</div>
+              </div>
+            </div>
           </div>
-          <div class="status-row">
-            <span>Alertes</span>
-            <strong>2</strong>
+
+          <!-- SERVER MONITOR & METRICS -->
+          <div class="grid-2-1">
+            <div class="panel-card">
+              <div class="panel-head">
+                <h3>État en Direct des Nœuds d'Infrastructure</h3>
+                <span class="status-pill online">Ping < 1ms</span>
+              </div>
+              <div class="panel-body" style="padding: 0;">
+                <table class="node-table">
+                  <thead>
+                    <tr>
+                      <th>Équipement</th>
+                      <th>Rôle &amp; Services</th>
+                      <th>Adresse IP</th>
+                      <th>Statut</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="node-name">DC01</td>
+                      <td>Samba4 AD DC, DNS, Kerberos, Kea DHCP</td>
+                      <td><code>192.168.10.10</code></td>
+                      <td><span class="status-pill online">ONLINE</span></td>
+                    </tr>
+                    <tr>
+                      <td class="node-name">FW01</td>
+                      <td>pfSense Firewall, OpenVPN MFA, Suricata IPS</td>
+                      <td><code>192.168.10.1</code></td>
+                      <td><span class="status-pill online">ONLINE</span></td>
+                    </tr>
+                    <tr>
+                      <td class="node-name">ANSIBLE01</td>
+                      <td>Ansible Control Node &amp; Semaphore UI</td>
+                      <td><code>192.168.10.20</code></td>
+                      <td><span class="status-pill online">ONLINE</span></td>
+                    </tr>
+                    <tr>
+                      <td class="node-name">LB01</td>
+                      <td>HAProxy Load Balancer (DMZ Port 80)</td>
+                      <td><code>192.168.40.10</code></td>
+                      <td><span class="status-pill online">ONLINE</span></td>
+                    </tr>
+                    <tr>
+                      <td class="node-name">WEB01 / WEB02</td>
+                      <td>Serveurs Web Nginx durcis (serial: 2)</td>
+                      <td><code>192.168.40.21/.22</code></td>
+                      <td><span class="status-pill online">ONLINE</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- CPU / RAM METRICS CHART -->
+            <div class="panel-card">
+              <div class="panel-head">
+                <h3>Charge Réseau &amp; CPU</h3>
+                <span class="status-pill warning">Temps réel</span>
+              </div>
+              <div class="panel-body">
+                <div class="chart-container">
+                  <div class="bar-column">
+                    <div class="bar-fill" style="height: 42%;"></div>
+                    <span class="bar-label">09:00</span>
+                  </div>
+                  <div class="bar-column">
+                    <div class="bar-fill" style="height: 68%;"></div>
+                    <span class="bar-label">10:00</span>
+                  </div>
+                  <div class="bar-column">
+                    <div class="bar-fill" style="height: 55%;"></div>
+                    <span class="bar-label">11:00</span>
+                  </div>
+                  <div class="bar-column">
+                    <div class="bar-fill" style="height: 85%;"></div>
+                    <span class="bar-label">12:00</span>
+                  </div>
+                  <div class="bar-column">
+                    <div class="bar-fill" style="height: 40%;"></div>
+                    <span class="bar-label">13:00</span>
+                  </div>
+                  <div class="bar-column">
+                    <div class="bar-fill" style="height: 72%;"></div>
+                    <span class="bar-label">14:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TAB 2: ITSM TICKETS GLPI -->
+        <div class="tab-pane" id="tab-itsm">
+          <div class="page-title-block">
+            <div>
+              <h1>Centre de Services ITSM — Incidents Majeurs Résolus</h1>
+              <p>Valorisation des 4 projets d'infrastructure d'Axel Moubachir sous forme de tickets ITIL à SLA 100%.</p>
+            </div>
+          </div>
+
+          <div class="ticket-list">
+            
+            <div class="ticket-item" onclick="openTicketModal('101')">
+              <div class="ticket-top">
+                <span class="ticket-id">#TICKET-101</span>
+                <span class="status-pill online">RESOLVED • SLA 100%</span>
+              </div>
+              <div class="ticket-title">Domaine Active Directory Samba4 &amp; GPO Windows</div>
+              <div class="ticket-desc">Déploiement d'un contrôleur de domaine Samba4 AD DC avec DNS intégré, Kea DHCP Relay, création des OUs et restriction des postes membres CLIENT-WIN01 via 3 GPO de sécurité.</div>
+              <div class="ticket-meta">
+                <span><strong>Catégorie :</strong> Identity &amp; Directory</span>
+                <span><strong>Réf :</strong> Samba4 / Kerberos / RSAT</span>
+                <span><strong>Soutenance :</strong> Validé 20/20</span>
+              </div>
+            </div>
+
+            <div class="ticket-item" onclick="openTicketModal('102')">
+              <div class="ticket-top">
+                <span class="ticket-id">#TICKET-102</span>
+                <span class="status-pill online">RESOLVED • SLA 100%</span>
+              </div>
+              <div class="ticket-title">Sécurisation périmétrique pfSense, VPN MFA &amp; Suricata IPS</div>
+              <div class="ticket-desc">Configuration des 4 VLANs 802.1Q (ADMIN, DATA, VOIP, DMZ), durcissement SSH ed25519, OpenVPN avec authentification TOTP et détection IPS d'attaques Nmap par Suricata.</div>
+              <div class="ticket-meta">
+                <span><strong>Catégorie :</strong> Network Security</span>
+                <span><strong>Réf :</strong> pfSense / OpenVPN / IPS</span>
+                <span><strong>Soutenance :</strong> Validé 19.5/20</span>
+              </div>
+            </div>
+
+            <div class="ticket-item" onclick="openTicketModal('103')">
+              <div class="ticket-top">
+                <span class="ticket-id">#TICKET-103</span>
+                <span class="status-pill online">RESOLVED • SLA 100%</span>
+              </div>
+              <div class="ticket-title">Industrialisation Infra-as-Code avec Ansible &amp; Semaphore UI</div>
+              <div class="ticket-desc">Automatisation du parc de serveurs avec Ansible Playbooks (mises à jour système serial: 2, rôle Nginx durci) et planification des exécutions nocturnes sur Semaphore UI.</div>
+              <div class="ticket-meta">
+                <span><strong>Catégorie :</strong> Automation IaC</span>
+                <span><strong>Réf :</strong> Ansible / Docker / Semaphore</span>
+                <span><strong>Soutenance :</strong> Validé 20/20</span>
+              </div>
+            </div>
+
+            <div class="ticket-item" onclick="openTicketModal('104')">
+              <div class="ticket-top">
+                <span class="ticket-id">#TICKET-104</span>
+                <span class="status-pill online">RESOLVED • SLA 100%</span>
+              </div>
+              <div class="ticket-title">Supervision Zabbix 7.4 &amp; Gestion de Parc GLPI</div>
+              <div class="ticket-desc">Intégration de l'inventaire automatique SNMP/Agent, connexion LDAPS port 636 et automatisation de l'ouverture de tickets d'incidents via Webhook JavaScript REST.</div>
+              <div class="ticket-meta">
+                <span><strong>Catégorie :</strong> Monitoring &amp; ITSM</span>
+                <span><strong>Réf :</strong> Zabbix / GLPI / LDAPS 636</span>
+                <span><strong>Soutenance :</strong> Validé 20/20</span>
+              </div>
+            </div>
+
           </div>
         </div>
-      </aside>
 
-      <main class="content">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">PROJET FINAL DE STAGE</p>
-            <h1>Centre d’Excellence & d’Industrialisation Système</h1>
-          </div>
-          <div class="topbar-actions">
-            <button class="ghost-btn">Système OK</button>
-            <a class="primary-btn" href="./cv.html" target="_blank">CV</a>
-          </div>
-        </header>
-
-        <section id="overview" class="overview-grid">
-          <div class="panel hero-panel">
-            <div class="panel-header">
-              <span class="label">Profil</span>
-              <span class="pill success">En ligne</span>
+        <!-- TAB 3: TERMINAL SISR CLI -->
+        <div class="tab-pane" id="tab-terminal">
+          <div class="page-title-block">
+            <div>
+              <h1>Terminal Web SISR — Shell Interactif v3.0</h1>
+              <p>Tapez des commandes directement dans la console pour inspecter les compétences et projets d'Axel.</p>
             </div>
-            <h2>Axel Moubachir</h2>
-            <p>              <strong>BTS SIO SISR — Début de 2e année</strong><br>              Administrateur système & réseau, spécialisé dans les infrastructures critiques,
-              la sécurisation périmétrique, l’automatisation et la supervision de services.
-            </p>
-            <div class="hero-metrics">
+          </div>
+
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot-btn dot-red"></span>
+                <span class="dot-btn dot-yellow"></span>
+                <span class="dot-btn dot-green"></span>
+              </div>
+              <span class="terminal-title-text">axel@synaptic-itsm:~ (bash)</span>
+              <span>UTF-8</span>
+            </div>
+            <div class="terminal-body" id="termBody">
+              <div class="term-line term-out success">Welcome to Synaptic SISR Terminal Shell v3.0 Pro!</div>
+              <div class="term-line term-out">Type <span style="color:#38bdf8; font-weight:bold;">help</span> to see available commands.</div>
+            </div>
+            <div style="padding: 10px 20px; background: #0f172a; border-top: 1px solid #1e293b;">
+              <div class="term-input-row">
+                <span class="term-prompt">axel@synaptic-itsm:~$</span>
+                <input type="text" class="term-input" id="termInput" placeholder="Saisissez une commande (ex: help, cv, skills, ping)..." autofocus />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: OSINT VISITOR TRACKER -->
+        <div class="tab-pane" id="tab-osint">
+          <div class="page-title-block">
+            <div>
+              <h1>Auditeur &amp; Télémétrie Visiteur (OSINT Live)</h1>
+              <p>Inspection en temps réel de votre session de connexion (adresse IP, géolocalisation et logs de navigation).</p>
+            </div>
+          </div>
+
+          <div class="osint-grid">
+            <div class="osint-field">
+              <div class="osint-label">Adresse IP Publique</div>
+              <div class="osint-val" id="osintIp">Chargement...</div>
+            </div>
+
+            <div class="osint-field">
+              <div class="osint-label">Localisation Réseau</div>
+              <div class="osint-val" id="osintGeo">Paris, France 🇫🇷</div>
+            </div>
+
+            <div class="osint-field">
+              <div class="osint-label">Fournisseur d'Accès (ISP)</div>
+              <div class="osint-val" id="osintIsp">Détection en cours...</div>
+            </div>
+
+            <div class="osint-field">
+              <div class="osint-label">Système d'Exploitation</div>
+              <div class="osint-val" id="osintOs">Macintosh / Windows</div>
+            </div>
+
+            <div class="osint-field">
+              <div class="osint-label">Navigateur Web</div>
+              <div class="osint-val" id="osintBrowser">Google Chrome / Safari</div>
+            </div>
+
+            <div class="osint-field">
+              <div class="osint-label">Temps de Présence</div>
+              <div class="osint-val" id="osintTimer">00:00:00</div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-head">
+              <h3>Journal d'Événements Visiteur en Temps Réel (Live Event Stream)</h3>
+              <span class="status-pill online">Active Audit</span>
+            </div>
+            <div class="panel-body">
+              <div class="log-stream" id="logStream">
+                <div class="log-entry"><span class="log-time">[10:00:01]</span> <span class="log-tag">[SYSTEM]</span> <span class="log-msg">Session de télémétrie initialisée avec succès.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: NETWORK INCIDENT CHALLENGE -->
+        <div class="tab-pane" id="tab-challenge">
+          <div class="page-title-block">
+            <div>
+              <h1>Simulateur d'Incident — Network &amp; Firewall Challenge</h1>
+              <p>Résolvez la panne de pare-feu pfSense en 2 minutes pour rétablir le trafic web et générer votre attestation.</p>
+            </div>
+          </div>
+
+          <div class="challenge-box">
+            <div class="challenge-step">
+              <h4>⚠️ Alerte Incident #INC-904 : Serveur Web WEB01 Inaccessible sur le Port 80</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Le trafic HTTP vers le serveur Nginx WEB01 (192.168.40.21) est actuellement bloqué par une règle de pare-feu pfSense stricte. Basculez la règle pour réautoriser le flux port 80.</p>
+            </div>
+
+            <div class="rule-toggle-row">
               <div>
-                <strong>4</strong>
-                <span>tickets</span>
+                <strong>Règle pfSense DMZ : Allow HTTP (Port 80) vers DMZ</strong>
+                <div style="font-size: 0.75rem; color: var(--text-subtle);">Source: Any | Pass: DMZ WEB_POOL | Port: 80</div>
               </div>
               <div>
-                <strong>5</strong>
-                <span>services</span>
-              </div>
-              <div>
-                <strong>99.9%</strong>
-                <span>SLA</span>
+                <button class="action-btn primary" id="toggleFirewallBtn">Activer la règle (PASS)</button>
               </div>
             </div>
-          </div>
 
-          <div class="panel small-panel">
-            <div class="panel-header">
-              <span class="label">CPU / RAM</span>
-              <span class="pill neutral">Live</span>
-            </div>
-            <div class="chart-box">
-              <div class="bars">
-                <span style="height: 46%"></span>
-                <span style="height: 61%"></span>
-                <span style="height: 75%"></span>
-                <span style="height: 53%"></span>
-                <span style="height: 82%"></span>
-                <span style="height: 69%"></span>
-                <span style="height: 88%"></span>
-              </div>
-            </div>
-            <div class="chart-legend">
-              <span><i class="dot blue"></i> CPU</span>
-              <span><i class="dot violet"></i> RAM</span>
+            <div id="challengeResultBox" style="display: none; margin-top: 20px; padding: 18px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px;">
+              <h4 style="color: #15803d;">🎉 Incident Résolu avec Succès !</h4>
+              <p style="font-size: 0.85rem; color: #166534; margin-top: 4px;">Le service HAProxy et WEB01 répond de nouveau sur le port 80. Vous avez fait preuve de réactivité !</p>
+              <button class="action-btn secondary" style="margin-top: 12px;" onclick="window.print()">Imprimer l'Attestation de Réussite</button>
             </div>
           </div>
+        </div>
 
-          <div class="panel uptime-panel">
-            <div class="panel-header">
-              <span class="label">Uptime</span>
-              <span class="pill warning">Monitoring</span>
-            </div>
-            <div class="uptime-ring">
-              <div class="ring-inner">99.9%</div>
-            </div>
-            <div class="service-list">
-              <span>DC01</span>
-              <span>FW01</span>
-              <span>LB01</span>
-              <span>ANSIBLE01</span>
-            </div>
-          </div>
-        </section>
-
-        <section id="tickets" class="dashboard-section">
-          <div class="section-head">
-            <h3>Tickets & missions</h3>
-            <span class="pill info">SISR</span>
-          </div>
-
-          <div class="card-grid two-col">
-            <article class="info-card ticket-card">
-              <span class="tag-soft">#101</span>
-              <h4>Domaine Samba4 AD & GPO Windows</h4>
-              <p>Administration du domaine, sécurisation des postes Windows et centralisation des politiques de sécurité.</p>
-            </article>
-            <article class="info-card ticket-card">
-              <span class="tag-soft">#102</span>
-              <h4>Sécurisation périmétrique pfSense & VPN</h4>
-              <p>Protection réseau, filtrage, accès distant sécurisé, contrôle d’entrée et segmentation du trafic.</p>
-            </article>
-            <article class="info-card ticket-card">
-              <span class="tag-soft">#103</span>
-              <h4>Industrialisation IaC avec Ansible & Semaphore</h4>
-              <p>Standardisation des configurations et automatisation de l’infrastructure via IaC.</p>
-            </article>
-            <article class="info-card ticket-card">
-              <span class="tag-soft">#104</span>
-              <h4>Supervision Zabbix & gestion de parc GLPI</h4>
-              <p>Supervision proactive, alerting et gestion du parc matériel et logiciel en environnement critique.</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="skills" class="dashboard-section">
-          <div class="section-head">
-            <h3>Compétences</h3>
-            <span class="pill info">Badges</span>
-          </div>
-
-          <div class="badge-grid">
-            <span class="badge">Linux</span>
-            <span class="badge">Samba4</span>
-            <span class="badge">pfSense</span>
-            <span class="badge">Docker</span>
-            <span class="badge">Ansible</span>
-            <span class="badge">Windows Server</span>
-            <span class="badge">GPO</span>
-            <span class="badge">Zabbix</span>
-            <span class="badge">GLPI</span>
-            <span class="badge">VPN</span>
-            <span class="badge">Monitoring</span>
-            <span class="badge">Automation</span>
-          </div>
-        </section>
-
-        <section id="projects" class="dashboard-section">
-          <div class="section-head">
-            <h3>Centre d’excellence</h3>
-            <span class="pill neutral">Projet final</span>
-          </div>
-
-          <div class="card-grid three-col">
-            <article class="info-card">
-              <span class="tag-soft">Contexte</span>
-              <h4>Projet final de stage</h4>
-              <p>Portfolio sous forme d’outil SaaS d’entreprise pour exposer les compétences, missions et outils SISR.</p>
-            </article>
-            <article class="info-card">
-              <span class="tag-soft">Technologies</span>
-              <h4>Stack d’infra</h4>
-              <p>Linux, Windows, pfSense, Ansible, Docker, Zabbix, GLPI, supervision réseau et sécurité.</p>
-            </article>
-            <article class="info-card">
-              <span class="tag-soft">Contact</span>
-              <h4>Axel Moubachir</h4>
-              <p>Pour : Axel MOUBACHIR • Août 2026</p>
-              <p class="mail">axel.moubachir@ynov.com</p>
-            </article>
-          </div>
-        </section>
-      </main>
+      </div>
     </div>
+  </div>
 
-    <footer id="contact" class="bottom-footer">
-      <div>
-        <span>© <span id="year"></span> Axel Moubachir</span>
+  <!-- TICKET DETAIL MODAL -->
+  <div class="modal-overlay" id="ticketModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTicketTitle">Détails du Ticket</h3>
+        <button class="close-modal-btn" onclick="closeTicketModal()">&times;</button>
       </div>
-      <div class="footer-meta">
-        <a href="mailto:axel.moubachir@ynov.com">axel.moubachir@ynov.com</a>
-        <a href="./cv.html" target="_blank">CV</a>
+      <div class="modal-body" id="modalTicketBody">
+        <!-- Content injected dynamically -->
       </div>
-    </footer>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
