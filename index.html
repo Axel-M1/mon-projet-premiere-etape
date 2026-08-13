@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Axel Moubacir | SaaS Portfolio</title>
+    <title>My Portfolio | Axel Moubacir</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -16,16 +16,16 @@
           <div class="brand-logo">A</div>
           <div>
             <div class="brand-name">Axel Moubacir</div>
-            <small>Portfolio SISR</small>
+            <small>My Portfolio</small>
           </div>
         </div>
 
         <nav class="sidebar-nav">
-          <a class="nav-item active" href="#overview">Overview</a>
-          <a class="nav-item" href="#tickets">Tickets</a>
-          <a class="nav-item" href="#skills">Compétences</a>
-          <a class="nav-item" href="#projects">Projets</a>
-          <a class="nav-item" href="#contact">Contact</a>
+          <a class="nav-item active" href="#" data-tab="overview">📊 Overview</a>
+          <a class="nav-item" href="#" data-tab="tickets">🎫 Tickets</a>
+          <a class="nav-item" href="#" data-tab="terminal">🖥 Terminal</a>
+          <a class="nav-item" href="#" data-tab="telemetry">🕵 Télémétrie</a>
+          <a class="nav-item" href="#" data-tab="game">🎮 Challenge</a>
         </nav>
 
         <div class="sidebar-card">
@@ -45,159 +45,402 @@
       </aside>
 
       <main class="content">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">PROJET FINAL DE STAGE</p>
-            <h1>Centre d’Excellence & d’Industrialisation Système</h1>
-          </div>
-          <div class="topbar-actions">
-            <button class="ghost-btn">Système OK</button>
-            <a class="primary-btn" href="./cv.html" target="_blank">CV</a>
-          </div>
-        </header>
+        <!-- ONGLET 1: OVERVIEW -->
+        <div id="overview" class="tab-content active">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow">PROJET FINAL DE STAGE</p>
+              <h1>Centre d'Excellence & d'Industrialisation Système</h1>
+            </div>
+            <div class="topbar-actions">
+              <button class="ghost-btn">Système OK</button>
+              <a class="primary-btn" href="./cv.html" target="_blank">CV</a>
+            </div>
+          </header>
 
-        <section id="overview" class="overview-grid">
-          <div class="panel hero-panel">
-            <div class="panel-header">
-              <span class="label">Profil</span>
-              <span class="pill success">En ligne</span>
-            </div>
-            <h2>Axel Moubachir</h2>
-            <p>              <strong>BTS SIO SISR — Début de 2e année</strong><br>              Administrateur système & réseau, spécialisé dans les infrastructures critiques,
-              la sécurisation périmétrique, l’automatisation et la supervision de services.
-            </p>
-            <div class="hero-metrics">
-              <div>
-                <strong>4</strong>
-                <span>tickets</span>
+          <section class="overview-grid">
+            <div class="panel hero-panel">
+              <div class="panel-header">
+                <span class="label">Profil</span>
+                <span class="pill success">En ligne</span>
               </div>
-              <div>
-                <strong>5</strong>
-                <span>services</span>
-              </div>
-              <div>
-                <strong>99.9%</strong>
-                <span>SLA</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel small-panel">
-            <div class="panel-header">
-              <span class="label">CPU / RAM</span>
-              <span class="pill neutral">Live</span>
-            </div>
-            <div class="chart-box">
-              <div class="bars">
-                <span style="height: 46%"></span>
-                <span style="height: 61%"></span>
-                <span style="height: 75%"></span>
-                <span style="height: 53%"></span>
-                <span style="height: 82%"></span>
-                <span style="height: 69%"></span>
-                <span style="height: 88%"></span>
+              <h2>Axel Moubachir</h2>
+              <p>
+                <strong>BTS SIO SISR — Début de 2e année</strong><br>
+                Administrateur système & réseau, spécialisé dans les infrastructures critiques,
+                la sécurisation périmétrique, l'automatisation et la supervision de services.
+              </p>
+              <div class="hero-metrics">
+                <div>
+                  <strong>4</strong>
+                  <span>tickets</span>
+                </div>
+                <div>
+                  <strong>5</strong>
+                  <span>services</span>
+                </div>
+                <div>
+                  <strong>99.9%</strong>
+                  <span>SLA</span>
+                </div>
               </div>
             </div>
-            <div class="chart-legend">
-              <span><i class="dot blue"></i> CPU</span>
-              <span><i class="dot violet"></i> RAM</span>
+
+            <div class="panel small-panel">
+              <div class="panel-header">
+                <span class="label">CPU / RAM</span>
+                <span class="pill neutral">Live</span>
+              </div>
+              <div class="chart-box">
+                <div class="bars">
+                  <span style="height: 46%"></span>
+                  <span style="height: 61%"></span>
+                  <span style="height: 75%"></span>
+                  <span style="height: 53%"></span>
+                  <span style="height: 82%"></span>
+                  <span style="height: 69%"></span>
+                  <span style="height: 88%"></span>
+                </div>
+              </div>
+              <div class="chart-legend">
+                <span><i class="dot blue"></i> CPU</span>
+                <span><i class="dot violet"></i> RAM</span>
+              </div>
             </div>
-          </div>
 
-          <div class="panel uptime-panel">
-            <div class="panel-header">
-              <span class="label">Uptime</span>
-              <span class="pill warning">Monitoring</span>
+            <div class="panel uptime-panel">
+              <div class="panel-header">
+                <span class="label">Uptime</span>
+                <span class="pill warning">Monitoring</span>
+              </div>
+              <div class="uptime-ring">
+                <div class="ring-inner">99.9%</div>
+              </div>
+              <div class="service-list">
+                <span>DC01</span>
+                <span>FW01</span>
+                <span>LB01</span>
+                <span>ANSIBLE01</span>
+              </div>
             </div>
-            <div class="uptime-ring">
-              <div class="ring-inner">99.9%</div>
+          </section>
+
+          <section class="dashboard-section">
+            <div class="section-head">
+              <h3>Compétences</h3>
+              <span class="pill info">Badges</span>
             </div>
-            <div class="service-list">
-              <span>DC01</span>
-              <span>FW01</span>
-              <span>LB01</span>
-              <span>ANSIBLE01</span>
+            <div class="badge-grid">
+              <span class="badge">Linux</span>
+              <span class="badge">Samba4</span>
+              <span class="badge">pfSense</span>
+              <span class="badge">Docker</span>
+              <span class="badge">Ansible</span>
+              <span class="badge">Windows Server</span>
+              <span class="badge">GPO</span>
+              <span class="badge">Zabbix</span>
+              <span class="badge">GLPI</span>
+              <span class="badge">VPN</span>
+              <span class="badge">Monitoring</span>
+              <span class="badge">Automation</span>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
-        <section id="tickets" class="dashboard-section">
-          <div class="section-head">
-            <h3>Tickets & missions</h3>
-            <span class="pill info">SISR</span>
-          </div>
+        <!-- ONGLET 2: TICKETS -->
+        <div id="tickets" class="tab-content">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow">PROJETS BTS SIO SISR</p>
+              <h1>Tickets & Missions Résolues</h1>
+            </div>
+          </header>
 
-          <div class="card-grid two-col">
-            <article class="info-card ticket-card">
-              <span class="tag-soft">#101</span>
-              <h4>Domaine Samba4 AD & GPO Windows</h4>
-              <p>Administration du domaine, sécurisation des postes Windows et centralisation des politiques de sécurité.</p>
-            </article>
-            <article class="info-card ticket-card">
-              <span class="tag-soft">#102</span>
-              <h4>Sécurisation périmétrique pfSense & VPN</h4>
-              <p>Protection réseau, filtrage, accès distant sécurisé, contrôle d’entrée et segmentation du trafic.</p>
-            </article>
-            <article class="info-card ticket-card">
-              <span class="tag-soft">#103</span>
-              <h4>Industrialisation IaC avec Ansible & Semaphore</h4>
-              <p>Standardisation des configurations et automatisation de l’infrastructure via IaC.</p>
-            </article>
-            <article class="info-card ticket-card">
-              <span class="tag-soft">#104</span>
-              <h4>Supervision Zabbix & gestion de parc GLPI</h4>
-              <p>Supervision proactive, alerting et gestion du parc matériel et logiciel en environnement critique.</p>
-            </article>
-          </div>
-        </section>
+          <section class="dashboard-section">
+            <div class="section-head">
+              <h3>Mes 4 Tickets Résolus (SLA 100%)</h3>
+              <span class="pill success">Complété</span>
+            </div>
+            <div class="card-grid two-col">
+              <article class="info-card ticket-card">
+                <span class="tag-soft">#101</span>
+                <h4>Domaine Samba4 AD & GPO Windows</h4>
+                <p>Administration du domaine, sécurisation des postes Windows et centralisation des politiques de sécurité.</p>
+                <div style="margin-top: 12px; color: var(--muted); font-size: 0.85rem;">✅ Résolu • SLA: 100%</div>
+              </article>
+              <article class="info-card ticket-card">
+                <span class="tag-soft">#102</span>
+                <h4>Sécurisation périmétrique pfSense & VPN</h4>
+                <p>Protection réseau, filtrage, accès distant sécurisé, contrôle d'entrée et segmentation du trafic.</p>
+                <div style="margin-top: 12px; color: var(--muted); font-size: 0.85rem;">✅ Résolu • SLA: 100%</div>
+              </article>
+              <article class="info-card ticket-card">
+                <span class="tag-soft">#103</span>
+                <h4>Industrialisation IaC avec Ansible & Semaphore</h4>
+                <p>Standardisation des configurations et automatisation de l'infrastructure via Infrastructure as Code.</p>
+                <div style="margin-top: 12px; color: var(--muted); font-size: 0.85rem;">✅ Résolu • SLA: 100%</div>
+              </article>
+              <article class="info-card ticket-card">
+                <span class="tag-soft">#104</span>
+                <h4>Supervision Zabbix & Gestion de parc GLPI</h4>
+                <p>Supervision proactive, alerting et gestion du parc matériel et logiciel en environnement critique.</p>
+                <div style="margin-top: 12px; color: var(--muted); font-size: 0.85rem;">✅ Résolu • SLA: 100%</div>
+              </article>
+            </div>
+          </section>
 
-        <section id="skills" class="dashboard-section">
-          <div class="section-head">
-            <h3>Compétences</h3>
-            <span class="pill info">Badges</span>
-          </div>
+          <section class="dashboard-section">
+            <div class="section-head">
+              <h3>Centre d'Excellence</h3>
+              <span class="pill neutral">Stack Infra</span>
+            </div>
+            <div class="card-grid three-col">
+              <article class="info-card">
+                <span class="tag-soft">Contexte</span>
+                <h4>Projet final de stage</h4>
+                <p>Portfolio SaaS pour exposer les compétences, missions et outils SISR de manière professionnelle et interactive.</p>
+              </article>
+              <article class="info-card">
+                <span class="tag-soft">Technologies</span>
+                <h4>Stack d'infrastructure</h4>
+                <p>Linux, Windows, pfSense, Ansible, Docker, Zabbix, GLPI, supervision réseau et sécurité.</p>
+              </article>
+              <article class="info-card">
+                <span class="tag-soft">Contact</span>
+                <h4>Axel Moubachir</h4>
+                <p>Réalisé • Août 2026</p>
+                <p class="mail">axel.moubachir@ynov.com</p>
+              </article>
+            </div>
+          </section>
+        </div>
 
-          <div class="badge-grid">
-            <span class="badge">Linux</span>
-            <span class="badge">Samba4</span>
-            <span class="badge">pfSense</span>
-            <span class="badge">Docker</span>
-            <span class="badge">Ansible</span>
-            <span class="badge">Windows Server</span>
-            <span class="badge">GPO</span>
-            <span class="badge">Zabbix</span>
-            <span class="badge">GLPI</span>
-            <span class="badge">VPN</span>
-            <span class="badge">Monitoring</span>
-            <span class="badge">Automation</span>
-          </div>
-        </section>
+        <!-- ONGLET 3: TERMINAL CLI -->
+        <div id="terminal" class="tab-content">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow">TERMINAL WEB</p>
+              <h1>Shell Interactif</h1>
+            </div>
+          </header>
 
-        <section id="projects" class="dashboard-section">
-          <div class="section-head">
-            <h3>Centre d’excellence</h3>
-            <span class="pill neutral">Projet final</span>
-          </div>
+          <section class="dashboard-section">
+            <div class="terminal-container">
+              <div class="terminal-header">
+                <span class="terminal-title">visitor@my-portfolio:~$</span>
+              </div>
+              <div class="terminal-output" id="terminalOutput">
+                <div style="color: var(--primary); margin-bottom: 12px;">Welcome to My Portfolio Shell v1.0</div>
+                <div style="color: var(--muted); margin-bottom: 12px;">Type 'help' to see available commands</div>
+              </div>
+              <div class="terminal-input-wrapper">
+                <span class="terminal-prompt">visitor@my-portfolio:~$ </span>
+                <input type="text" id="terminalInput" class="terminal-input" placeholder="Entrez une commande..." />
+              </div>
+            </div>
+          </section>
 
-          <div class="card-grid three-col">
-            <article class="info-card">
-              <span class="tag-soft">Contexte</span>
-              <h4>Projet final de stage</h4>
-              <p>Portfolio sous forme d’outil SaaS d’entreprise pour exposer les compétences, missions et outils SISR.</p>
-            </article>
-            <article class="info-card">
-              <span class="tag-soft">Technologies</span>
-              <h4>Stack d’infra</h4>
-              <p>Linux, Windows, pfSense, Ansible, Docker, Zabbix, GLPI, supervision réseau et sécurité.</p>
-            </article>
-            <article class="info-card">
-              <span class="tag-soft">Contact</span>
-              <h4>Axel Moubachir</h4>
-              <p>Pour : Axel MOUBACHIR • Août 2026</p>
-              <p class="mail">axel.moubachir@ynov.com</p>
-            </article>
-          </div>
-        </section>
+          <section class="dashboard-section">
+            <div class="section-head">
+              <h3>Commandes Disponibles</h3>
+              <span class="pill info">CLI</span>
+            </div>
+            <div class="card-grid three-col">
+              <div class="info-card">
+                <span class="tag-soft">help</span>
+                <h4>Liste des commandes</h4>
+                <p>Affiche toutes les commandes accessibles.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-soft">cv</span>
+                <h4>Afficher le CV</h4>
+                <p>Affiche les coordonnées et la formation.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-soft">ping</span>
+                <h4>Tester la connectivité</h4>
+                <p>Simule un ping réseau vers un serveur.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-soft">ansible-playbook</span>
+                <h4>Exécuter un playbook</h4>
+                <p>Anime un déploiement automatisé.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-soft">skills</span>
+                <h4>Compétences techniques</h4>
+                <p>Liste toutes les compétences SISR.</p>
+              </div>
+              <div class="info-card">
+                <span class="tag-soft">clear</span>
+                <h4>Effacer le terminal</h4>
+                <p>Nettoie l'affichage du terminal.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ONGLET 4: TELEMETRY OSINT -->
+        <div id="telemetry" class="tab-content">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow">TÉLÉMÉTRIE OSINT</p>
+              <h1>Tracker Visiteur RH</h1>
+            </div>
+          </header>
+
+          <section class="dashboard-section">
+            <div class="section-head">
+              <h3>Informations Visiteur</h3>
+              <span class="pill warning">Real-time</span>
+            </div>
+            <div class="card-grid two-col">
+              <div class="panel">
+                <div class="panel-header">
+                  <span class="label">Réseau</span>
+                </div>
+                <div style="margin-top: 16px;">
+                  <div style="margin-bottom: 14px;">
+                    <span style="color: var(--muted); font-size: 0.9rem;">IP Publique</span>
+                    <div style="font-weight: 700; margin-top: 4px;" id="visitorIP">Détection...</div>
+                  </div>
+                  <div style="margin-bottom: 14px;">
+                    <span style="color: var(--muted); font-size: 0.9rem;">Localisation</span>
+                    <div style="font-weight: 700; margin-top: 4px;" id="visitorLocation">Détection...</div>
+                  </div>
+                  <div>
+                    <span style="color: var(--muted); font-size: 0.9rem;">FAI / ISP</span>
+                    <div style="font-weight: 700; margin-top: 4px;" id="visitorISP">Détection...</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel">
+                <div class="panel-header">
+                  <span class="label">Sécurité</span>
+                </div>
+                <div style="margin-top: 16px;">
+                  <div style="margin-bottom: 14px;">
+                    <span style="color: var(--muted); font-size: 0.9rem;">VPN / Proxy</span>
+                    <div style="font-weight: 700; margin-top: 4px; color: var(--success);" id="vpnStatus">Non détecté ✓</div>
+                  </div>
+                  <div style="margin-bottom: 14px;">
+                    <span style="color: var(--muted); font-size: 0.9rem;">Classification</span>
+                    <div style="font-weight: 700; margin-top: 4px; color: var(--success);" id="classStatus">Humain ✓</div>
+                  </div>
+                  <div>
+                    <span style="color: var(--muted); font-size: 0.9rem;">Navigateur</span>
+                    <div style="font-weight: 700; margin-top: 4px;" id="visitorBrowser">Détection...</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel">
+                <div class="panel-header">
+                  <span class="label">Système</span>
+                </div>
+                <div style="margin-top: 16px;">
+                  <div style="margin-bottom: 14px;">
+                    <span style="color: var(--muted); font-size: 0.9rem;">OS</span>
+                    <div style="font-weight: 700; margin-top: 4px;" id="visitorOS">Détection...</div>
+                  </div>
+                  <div style="margin-bottom: 14px;">
+                    <span style="color: var(--muted); font-size: 0.9rem;">Résolution</span>
+                    <div style="font-weight: 700; margin-top: 4px;" id="visitorRes">Détection...</div>
+                  </div>
+                  <div>
+                    <span style="color: var(--muted); font-size: 0.9rem;">Temps sur site</span>
+                    <div style="font-weight: 700; margin-top: 4px;" id="visitorTime">0 sec</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel">
+                <div class="panel-header">
+                  <span class="label">Engagement</span>
+                </div>
+                <div style="margin-top: 16px;">
+                  <div style="margin-bottom: 14px;">
+                    <span style="color: var(--muted); font-size: 0.9rem;">Pages vues</span>
+                    <div style="font-weight: 700; margin-top: 4px;" id="pageViews">1</div>
+                  </div>
+                  <div style="margin-bottom: 14px;">
+                    <span style="color: var(--muted); font-size: 0.9rem;">Dernière action</span>
+                    <div style="font-weight: 700; margin-top: 4px;" id="lastAction">À l'instant</div>
+                  </div>
+                  <div>
+                    <span style="color: var(--muted); font-size: 0.9rem;">Statut</span>
+                    <div style="font-weight: 700; margin-top: 4px; color: var(--success);" id="visitorStatus">🟢 Actif</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ONGLET 5: GAME CHALLENGE -->
+        <div id="game" class="tab-content">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow">MINI-CHALLENGE</p>
+              <h1>Network Incident Challenge</h1>
+            </div>
+          </header>
+
+          <section class="dashboard-section">
+            <div class="section-head">
+              <h3>Résoudre le Blocage Réseau</h3>
+              <span class="pill warning">2 min</span>
+            </div>
+            <div class="panel" style="max-width: 100%;">
+              <div style="margin-bottom: 20px;">
+                <p style="color: var(--muted); line-height: 1.8;">
+                  <strong>Scénario :</strong> Un utilisateur ne peut pas accéder à un serveur critique. 
+                  Glissez la bonne règle de pare-feu pfSense dans la zone de destination pour rétablir la connectivité.
+                </p>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                <!-- Règles disponibles (Draggable) -->
+                <div>
+                  <div style="color: var(--primary); font-weight: 700; margin-bottom: 12px;">📋 Règles Disponibles</div>
+                  <div class="game-rules">
+                    <div class="game-rule draggable" draggable="true" data-rule="allow-ssh">
+                      ✅ Allow SSH 192.168.1.0/24 → 10.0.0.5:22
+                    </div>
+                    <div class="game-rule draggable" draggable="true" data-rule="block-http">
+                      ❌ Block HTTP (port 80)
+                    </div>
+                    <div class="game-rule draggable" draggable="true" data-rule="allow-https">
+                      ✅ Allow HTTPS 192.168.1.0/24 → 10.0.0.5:443
+                    </div>
+                    <div class="game-rule draggable" draggable="true" data-rule="block-dns">
+                      ❌ Block DNS (port 53)
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Zone de destination -->
+                <div>
+                  <div style="color: var(--primary); font-weight: 700; margin-bottom: 12px;">🎯 Zone de Destination</div>
+                  <div class="game-drop-zone" id="gameDropZone">
+                    <div style="text-align: center; color: var(--muted);">
+                      Glissez la bonne règle ici pour débloquer
+                    </div>
+                  </div>
+                  <button class="primary-btn" id="submitGameBtn" style="width: 100%; margin-top: 16px; display: none;">
+                    Vérifier la solution
+                  </button>
+                </div>
+              </div>
+
+              <div id="gameResult" style="margin-top: 24px; padding: 16px; border-radius: 12px; display: none;">
+                <!-- Le résultat s'affichera ici -->
+              </div>
+            </div>
+          </section>
+        </div>
+
       </main>
     </div>
 

@@ -350,6 +350,137 @@ button, a {
   background: var(--violet);
 }
 
+/* Tab System */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Terminal Styles */
+.terminal-container {
+  background: #0f1419;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  color: #10b981;
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 0.92rem;
+}
+
+.terminal-header {
+  background: #1e293b;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.terminal-title {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.terminal-output {
+  padding: 16px;
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.terminal-input-wrapper {
+  display: flex;
+  padding: 0 16px 16px;
+  align-items: center;
+  gap: 8px;
+}
+
+.terminal-prompt {
+  color: #10b981;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #10b981;
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 0.92rem;
+}
+
+.terminal-input::placeholder {
+  color: #10b98155;
+}
+
+/* Game Styles */
+.game-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.game-rule {
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--primary-soft);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+  cursor: move;
+  transition: 0.2s ease;
+  user-select: none;
+}
+
+.game-rule:hover {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 8px 16px rgba(0, 31, 230, 0.2);
+}
+
+.game-rule.dragging {
+  opacity: 0.5;
+}
+
+.game-drop-zone {
+  min-height: 120px;
+  border: 2px dashed var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.game-drop-zone.drag-over {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+}
+
+.game-drop-zone .game-rule {
+  cursor: default;
+  margin: 0;
+}
+
+.game-result-success {
+  background: rgba(22, 163, 74, 0.12);
+  border: 1px solid var(--success);
+  color: var(--success);
+}
+
+.game-result-error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+}
+
 .uptime-ring {
   width: 140px;
   height: 140px;
