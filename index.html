@@ -417,15 +417,84 @@
           </div>
         </div>
 
-        <!-- TAB 5: NETWORK INCIDENT CHALLENGE -->
+        <!-- TAB 5: ARCADE & MINI-JEUX SISR -->
         <div class="tab-pane" id="tab-challenge">
           <div class="page-title-block">
             <div>
-              <h1>Simulateur d'Incident — Network &amp; Firewall Challenge</h1>
-              <p>Résolvez la panne de pare-feu pfSense en 2 minutes pour rétablir le trafic web et générer votre attestation.</p>
+              <h1>Espace Arcade &amp; Mini-Jeux — Pause Café SysAdmin</h1>
+              <p>Testez vos réflexes avec le mini-jeu réseau interactif. Atteignez le meilleur score !</p>
+            </div>
+            <div>
+              <span class="status-pill online">Arcade Active</span>
             </div>
           </div>
 
+          <!-- GAME SELECTOR BAR -->
+          <div class="grid-4" style="margin-bottom: 20px;">
+            <div class="stat-card" style="border-color: var(--primary); background: #eff6ff;">
+              <div class="stat-header">
+                <span style="color: var(--primary-text);">1. Cyber Snake</span>
+                <span class="nav-badge green">JOUABLE</span>
+              </div>
+              <div class="stat-subtext" style="margin-top:6px;">Collectez les paquets IP sans toucher les pare-feu.</div>
+            </div>
+
+            <div class="stat-card" style="opacity: 0.7;">
+              <div class="stat-header">
+                <span>2. Network Pong</span>
+                <span class="nav-badge amber">À VENIR</span>
+              </div>
+              <div class="stat-subtext" style="margin-top:6px;">Pong réseau à 2 joueurs ou contre l'IA.</div>
+            </div>
+
+            <div class="stat-card" style="opacity: 0.7;">
+              <div class="stat-header">
+                <span>3. Sokoban SysAdmin</span>
+                <span class="nav-badge amber">À VENIR</span>
+              </div>
+              <div class="stat-subtext" style="margin-top:6px;">Ranger les baies de serveurs dans le datacenter.</div>
+            </div>
+
+            <div class="stat-card" style="opacity: 0.7;">
+              <div class="stat-header">
+                <span>4. DDoS Invaders</span>
+                <span class="nav-badge amber">À VENIR</span>
+              </div>
+              <div class="stat-subtext" style="margin-top:6px;">Détruire les attaques de botnets entrants.</div>
+            </div>
+          </div>
+
+          <!-- CANVAS ARCADE CONTAINER -->
+          <div class="panel-card" style="margin-bottom: 24px;">
+            <div class="panel-head">
+              <h3>🕹️ Cyber Snake — Capture de Paquets Réseau</h3>
+              <div style="display: flex; gap: 14px; align-items: center;">
+                <span style="font-weight: 700; font-size: 0.9rem;">Score : <span id="snakeScore" style="color: var(--primary);">0</span></span>
+                <span style="font-weight: 700; font-size: 0.9rem;">Record : <span id="snakeBest" style="color: #16a34a;">0</span></span>
+                <button class="action-btn primary" id="startSnakeBtn">Démarrer la partie</button>
+              </div>
+            </div>
+
+            <div class="panel-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0f172a; border-radius: 0 0 var(--radius-lg) var(--radius-lg); padding: 24px;">
+              <canvas id="snakeCanvas" width="480" height="320" style="background: #1e293b; border: 2px solid #334155; border-radius: var(--radius-md); box-shadow: var(--shadow-modal); cursor: pointer;"></canvas>
+              
+              <div style="margin-top: 14px; color: #94a3b8; font-size: 0.78rem; font-family: 'JetBrains Mono', monospace; text-align: center;">
+                Utilisez les <strong>Touches Fléchées (↑ ↓ ← →)</strong> ou les boutons ci-dessous pour diriger le câble réseau.
+              </div>
+
+              <!-- D-PAD MOBILE CONTROLS -->
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 14px;">
+                <button class="action-btn secondary" style="width: 44px; padding: 0; justify-content: center;" onclick="triggerSnakeDir('UP')">▲</button>
+                <div style="display: flex; gap: 6px;">
+                  <button class="action-btn secondary" style="width: 44px; padding: 0; justify-content: center;" onclick="triggerSnakeDir('LEFT')">◀</button>
+                  <button class="action-btn secondary" style="width: 44px; padding: 0; justify-content: center;" onclick="triggerSnakeDir('DOWN')">▼</button>
+                  <button class="action-btn secondary" style="width: 44px; padding: 0; justify-content: center;" onclick="triggerSnakeDir('RIGHT')">▶</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FIREWALL SIMULATOR BOX -->
           <div class="challenge-box">
             <div class="challenge-step">
               <h4>⚠️ Alerte Incident #INC-904 : Serveur Web WEB01 Inaccessible sur le Port 80</h4>
@@ -449,6 +518,7 @@
             </div>
           </div>
         </div>
+
 
       </div>
     </div>

@@ -291,4 +291,140 @@ web02.dmz : ok=2  changed=1  failed=0  [IDEMPOTENCE VERIFIED]`
     });
   }
 
+  /* =========================================================
+     6. CYBER SNAKE ARCADE GAME ENGINE
+     ========================================================= */
+  const snakeCanvas = document.getElementById('snakeCanvas');
+  const snakeScoreEl = document.getElementById('snakeScore');
+  const snakeBestEl = document.getElementById('snakeBest');
+  const startSnakeBtn = document.getElementById('startSnakeBtn');
+
+  if (snakeCanvas) {
+    const ctx = snakeCanvas.getContext('2d');
+    const gridSize = 16;
+    const tileCountX = snakeCanvas.width / gridSize;
+    const tileCountY = snakeCanvas.height / gridSize;
+
+    let snake = [{ x: 10, y: 10 }];
+    let dx = 1, dy = 0;
+    let food = { x: 15, y: 10 };
+    let score = 0;
+    let bestScore = 0;
+    let gameInterval = null;
+    let isRunning = false;
+
+    function drawGame() {
+      // Move snake
+      const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+
+      // Wall collision
+      if (head.x < 0 || head.x >= tileCountX || head.y < 0 || head.y >= tileCountY) {
+        return gameOver();
+      }
+
+      // Self collision
+      for (let i = 0; i < snake.length; i++) {
+        if (snake[i].x === head.x && snake[i].y === head.y) {
+          return gameOver();
+        }
+      }
+
+      snake.unshift(head);
+
+      // Food collision
+      if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        if (snakeScoreEl) snakeScoreEl.textContent = score;
+        if (score > bestScore) {
+          bestScore = score;
+          if (snakeBestEl) snakeBestEl.textContent = bestScore;
+        }
+        placeFood();
+      } else {
+        snake.pop();
+      }
+
+      // Draw background
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, snakeCanvas.width, snakeCanvas.height);
+
+      // Draw grid lines
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      for (let x = 0; x < snakeCanvas.width; x += gridSize) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, snakeCanvas.height); ctx.stroke();
+      }
+      for (let y = 0; y < snakeCanvas.height; y += gridSize) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(snakeCanvas.width, y); ctx.stroke();
+      }
+
+      // Draw Food (Packet IP)
+      ctx.fillStyle = '#ef4444';
+      ctx.beginPath();
+      ctx.arc(food.x * gridSize + gridSize/2, food.y * gridSize + gridSize/2, gridSize/2 - 2, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Draw Snake (Ethernet Cable)
+      snake.forEach((part, idx) => {
+        ctx.fillStyle = idx === 0 ? '#38bdf8' : '#001fe6';
+        ctx.fillRect(part.x * gridSize + 1, part.y * gridSize + 1, gridSize - 2, gridSize - 2);
+      });
+    }
+
+    function placeFood() {
+      food = {
+        x: Math.floor(Math.random() * tileCountX),
+        y: Math.floor(Math.random() * tileCountY)
+      };
+    }
+
+    function gameOver() {
+      clearInterval(gameInterval);
+      isRunning = false;
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+      ctx.fillRect(0, 0, snakeCanvas.width, snakeCanvas.height);
+      ctx.fillStyle = '#ef4444';
+      ctx.font = 'bold 18px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('GAME OVER — PAQUET PERDU !', snakeCanvas.width / 2, snakeCanvas.height / 2 - 10);
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '14px Inter, sans-serif';
+      ctx.fillText(`Score final : ${score} pts`, snakeCanvas.width / 2, snakeCanvas.height / 2 + 20);
+      if (startSnakeBtn) startSnakeBtn.textContent = 'Rejouer';
+    }
+
+    function startSnake() {
+      snake = [{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }];
+      dx = 1; dy = 0;
+      score = 0;
+      if (snakeScoreEl) snakeScoreEl.textContent = 0;
+      placeFood();
+      if (gameInterval) clearInterval(gameInterval);
+      gameInterval = setInterval(drawGame, 100);
+      isRunning = true;
+      if (startSnakeBtn) startSnakeBtn.textContent = 'En cours...';
+    }
+
+    if (startSnakeBtn) {
+      startSnakeBtn.addEventListener('click', startSnake);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!isRunning) return;
+      if (e.key === 'ArrowUp' && dy === 0) { dx = 0; dy = -1; }
+      else if (e.key === 'ArrowDown' && dy === 0) { dx = 0; dy = 1; }
+      else if (e.key === 'ArrowLeft' && dx === 0) { dx = -1; dy = 0; }
+      else if (e.key === 'ArrowRight' && dx === 0) { dx = 1; dy = 0; }
+    });
+
+    window.triggerSnakeDir = function(dir) {
+      if (!isRunning) return;
+      if (dir === 'UP' && dy === 0) { dx = 0; dy = -1; }
+      if (dir === 'DOWN' && dy === 0) { dx = 0; dy = 1; }
+      if (dir === 'LEFT' && dx === 0) { dx = -1; dy = 0; }
+      if (dir === 'RIGHT' && dx === 0) { dx = 1; dy = 0; }
+    };
+  }
+
 });
+
