@@ -34,6 +34,7 @@
           <a class="nav-item" href="#" data-tab="terminal">🖥 Terminal</a>
           <a class="nav-item" href="#" data-tab="telemetry">🕵 Télémétrie</a>
           <a class="nav-item" href="#" data-tab="game">🎮 Challenge</a>
+          <a class="nav-item" href="#" data-tab="cv">📄 CV</a>
         </nav>
 
         <div class="sidebar-card">
@@ -61,7 +62,7 @@
             </div>
             <div class="topbar-actions">
               <button class="ghost-btn" id="systemCheckBtn">Système OK</button>
-              <a class="primary-btn" href="./CV_Axel_Moubachir.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+              <a class="primary-btn" href="#" data-tab="cv">CV</a>
             </div>
           </header>
 
@@ -157,26 +158,6 @@
               <span class="badge">VPN</span>
               <span class="badge">Monitoring</span>
               <span class="badge">Automation</span>
-            </div>
-          </section>
-
-          <section class="dashboard-section">
-            <div class="section-head">
-              <h3>📄 Curriculum Vitae</h3>
-              <span class="pill success">Téléchargeable</span>
-            </div>
-            <div class="panel" style="padding: 24px;">
-              <p style="color: var(--muted); margin-bottom: 20px; font-size: 1.05rem; text-align: center;">
-                Aperçu fidèle de mon CV complet. Formation, expériences et certifications détaillées.
-              </p>
-              <div class="cv-viewer">
-                <iframe src="./CV_Axel_Moubachir.pdf" title="CV Axel Moubachir" loading="lazy"></iframe>
-              </div>
-              <div style="text-align: center; margin-top: 20px;">
-                <a href="./CV_Axel_Moubachir.pdf" download class="primary-btn" style="display: inline-block; font-size: 1.1rem; padding: 12px 28px;">
-                  ⬇️ Télécharger Mon CV
-                </a>
-              </div>
             </div>
           </section>
         </div>
@@ -491,6 +472,36 @@
           </section>
         </div>
 
+        <!-- ONGLET 6: CV -->
+        <div id="cv" class="tab-content">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow">DOCUMENT</p>
+              <h1>Curriculum Vitae</h1>
+            </div>
+          </header>
+
+          <section class="dashboard-section">
+            <div class="section-head">
+              <h3>📄 Curriculum Vitae</h3>
+              <span class="pill success">Téléchargeable</span>
+            </div>
+            <div class="panel" style="padding: 24px;">
+              <p style="color: var(--muted); margin-bottom: 20px; font-size: 1.05rem; text-align: center;">
+                Aperçu fidèle de mon CV complet. Formation, expériences et certifications détaillées.
+              </p>
+              <div class="cv-viewer">
+                <iframe src="./CV_Axel_Moubachir.pdf" title="CV Axel Moubachir" loading="lazy"></iframe>
+              </div>
+              <div style="text-align: center; margin-top: 20px;">
+                <a href="./CV_Axel_Moubachir.pdf" download class="primary-btn" style="display: inline-block; font-size: 1.1rem; padding: 12px 28px;">
+                  ⬇️ Télécharger Mon CV
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+
       </main>
     </div>
 
@@ -500,7 +511,7 @@
       </div>
       <div class="footer-meta">
         <a href="mailto:axel.moubachir@ynov.com">axel.moubachir@ynov.com</a>
-        <a href="./CV_Axel_Moubachir.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        <a href="#" data-tab="cv">CV</a>
       </div>
     </footer>
 
