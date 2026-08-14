@@ -145,7 +145,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function processCommand(command, output) {
     const commandLine = document.createElement('div');
-    commandLine.innerHTML = `<span style="color: #10b981;">visitor@my-portfolio:~$</span> ${command}`;
+    const promptSpan = document.createElement('span');
+    promptSpan.style.color = '#10b981';
+    promptSpan.textContent = 'visitor@my-portfolio:~$';
+    commandLine.appendChild(promptSpan);
+    commandLine.appendChild(document.createTextNode(` ${command}`));
     output.appendChild(commandLine);
 
     lastActionTime = Date.now();
