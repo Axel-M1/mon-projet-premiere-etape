@@ -10,8 +10,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <button id="menuToggle" class="menu-toggle" aria-label="Ouvrir le menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <div class="app-shell">
-      <aside class="sidebar">
+      <aside class="sidebar" id="sidebar">
         <div class="brand-block">
           <div class="brand-avatar-wrap">
             <img class="brand-avatar" src="assets/axel-photo.jpeg" alt="Axel Moubacir" />
@@ -54,12 +60,12 @@
               <h1>Centre d'Excellence & d'Industrialisation Système</h1>
             </div>
             <div class="topbar-actions">
-              <button class="ghost-btn">Système OK</button>
-              <a class="primary-btn" href="./cv.html" target="_blank">CV</a>
+              <button class="ghost-btn" id="systemCheckBtn">Système OK</button>
+              <a class="primary-btn" href="./CV_Axel_Moubachir.pdf" target="_blank">CV</a>
             </div>
           </header>
 
-          <section class="overview-grid">
+          <section class="overview-grid overview-grid-spaced">
             <div class="panel hero-panel profile-panel">
               <div class="hero-copy">
                 <div class="panel-header">
@@ -159,13 +165,18 @@
               <h3>📄 Curriculum Vitae</h3>
               <span class="pill success">Téléchargeable</span>
             </div>
-            <div class="panel" style="padding: 32px; text-align: center;">
-              <p style="color: var(--muted); margin-bottom: 20px; font-size: 1.1rem;">
-                Télécharge mon CV complet en PDF pour connaître mon parcours détaillé, ma formation et mes certifications.
+            <div class="panel" style="padding: 24px;">
+              <p style="color: var(--muted); margin-bottom: 20px; font-size: 1.05rem; text-align: center;">
+                Aperçu fidèle de mon CV complet. Formation, expériences et certifications détaillées.
               </p>
-              <a href="./CV_Axel_Moubachir.pdf" download class="primary-btn" style="display: inline-block; font-size: 1.1rem; padding: 12px 28px;">
-                ⬇️ Télécharger Mon CV
-              </a>
+              <div class="cv-viewer">
+                <iframe src="./CV_Axel_Moubachir.pdf" title="CV Axel Moubachir" loading="lazy"></iframe>
+              </div>
+              <div style="text-align: center; margin-top: 20px;">
+                <a href="./CV_Axel_Moubachir.pdf" download class="primary-btn" style="display: inline-block; font-size: 1.1rem; padding: 12px 28px;">
+                  ⬇️ Télécharger Mon CV
+                </a>
+              </div>
             </div>
           </section>
         </div>
@@ -457,6 +468,27 @@
               </div>
             </div>
           </section>
+          <section class="dashboard-section">
+            <div class="section-head">
+              <h3>🐍 Snake Challenge</h3>
+              <span class="pill info">Arcade</span>
+            </div>
+            <div class="panel" style="max-width: 100%; text-align: center;">
+              <p style="color: var(--muted); line-height: 1.8; margin-bottom: 16px;">
+                Un petit jeu pour patienter entre deux déploiements. Flèches ou ZQSD pour diriger le serpent.
+              </p>
+              <div class="snake-wrapper">
+                <canvas id="snakeCanvas" width="400" height="400"></canvas>
+                <div class="snake-overlay" id="snakeOverlay">
+                  <button class="primary-btn" id="snakeStartBtn">▶️ Jouer</button>
+                </div>
+              </div>
+              <div class="snake-hud">
+                <span>Score: <strong id="snakeScore">0</strong></span>
+                <span>Meilleur: <strong id="snakeBest">0</strong></span>
+              </div>
+            </div>
+          </section>
         </div>
 
       </main>
@@ -468,7 +500,7 @@
       </div>
       <div class="footer-meta">
         <a href="mailto:axel.moubachir@ynov.com">axel.moubachir@ynov.com</a>
-        <a href="./cv.html" target="_blank">CV</a>
+        <a href="./CV_Axel_Moubachir.pdf" target="_blank">CV</a>
       </div>
     </footer>
 

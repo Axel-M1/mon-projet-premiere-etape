@@ -4,6 +4,28 @@ document.addEventListener('DOMContentLoaded', () => {
     year.textContent = new Date().getFullYear();
   }
 
+  // Burger menu
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    menuToggle.classList.remove('open');
+    sidebarOverlay.classList.remove('visible');
+  }
+
+  function toggleSidebar() {
+    const isOpen = sidebar.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    sidebarOverlay.classList.toggle('visible', isOpen);
+  }
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', toggleSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+  }
+
   // Tab System
   const navItems = document.querySelectorAll('[data-tab]');
   const tabContents = document.querySelectorAll('.tab-content');
@@ -24,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
         tabContent.classList.add('active');
       }
 
+      closeSidebar();
+
       // Initialize tab-specific features
       if (tabName === 'telemetry') {
         initTelemetry();
@@ -31,9 +55,32 @@ document.addEventListener('DOMContentLoaded', () => {
         initTerminal();
       } else if (tabName === 'game') {
         initGame();
+        initSnake();
       }
     });
   });
+
+  // Système OK - functional health check
+  const systemCheckBtn = document.getElementById('systemCheckBtn');
+  const statusDot = document.querySelector('.status-dot');
+  if (systemCheckBtn) {
+    systemCheckBtn.addEventListener('click', () => {
+      if (systemCheckBtn.disabled) return;
+      systemCheckBtn.disabled = true;
+      systemCheckBtn.textContent = '⏳ Vérification...';
+      if (statusDot) statusDot.classList.add('checking');
+
+      setTimeout(() => {
+        systemCheckBtn.textContent = '✅ Tous systèmes OK';
+        if (statusDot) statusDot.classList.remove('checking');
+
+        setTimeout(() => {
+          systemCheckBtn.textContent = 'Système OK';
+          systemCheckBtn.disabled = false;
+        }, 2500);
+      }, 1100);
+    });
+  }
 
   // Terminal functionality
   function initTerminal() {
@@ -217,6 +264,131 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
+  }
+
+  // Snake game
+  let snakeInterval = null;
+  let snakeKeysBound = false;
+  let snakeInitialized = false;
+
+  function initSnake() {
+    if (snakeInitialized) return;
+    const canvas = document.getElementById('snakeCanvas');
+    if (!canvas) return;
+    snakeInitialized = true;
+    const ctx = canvas.getContext('2d');
+    const overlay = document.getElementById('snakeOverlay');
+    const startBtn = document.getElementById('snakeStartBtn');
+    const scoreEl = document.getElementById('snakeScore');
+    const bestEl = document.getElementById('snakeBest');
+
+    const cell = 20;
+    const cols = canvas.width / cell;
+    const rows = canvas.height / cell;
+
+    let snake, direction, nextDirection, food, score, best;
+
+    best = parseInt(localStorage.getItem('snakeBest') || '0', 10);
+    bestEl.textContent = best;
+
+    function resetGame() {
+      snake = [{ x: 8, y: 10 }, { x: 7, y: 10 }, { x: 6, y: 10 }];
+      direction = 'right';
+      nextDirection = 'right';
+      score = 0;
+      scoreEl.textContent = score;
+      placeFood();
+    }
+
+    function placeFood() {
+      do {
+        food = {
+          x: Math.floor(Math.random() * cols),
+          y: Math.floor(Math.random() * rows)
+        };
+      } while (snake.some(s => s.x === food.x && s.y === food.y));
+    }
+
+    function draw() {
+      ctx.fillStyle = '#0e1524';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#22d3ee';
+      ctx.fillRect(food.x * cell + 2, food.y * cell + 2, cell - 4, cell - 4);
+
+      snake.forEach((segment, i) => {
+        ctx.fillStyle = i === 0 ? '#6366f1' : '#4f46e5';
+        ctx.fillRect(segment.x * cell + 1, segment.y * cell + 1, cell - 2, cell - 2);
+      });
+    }
+
+    function step() {
+      direction = nextDirection;
+      const head = { ...snake[0] };
+
+      if (direction === 'up') head.y -= 1;
+      if (direction === 'down') head.y += 1;
+      if (direction === 'left') head.x -= 1;
+      if (direction === 'right') head.x += 1;
+
+      const hitsWall = head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows;
+      const hitsSelf = snake.some(s => s.x === head.x && s.y === head.y);
+
+      if (hitsWall || hitsSelf) {
+        gameOver();
+        return;
+      }
+
+      snake.unshift(head);
+
+      if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        scoreEl.textContent = score;
+        placeFood();
+      } else {
+        snake.pop();
+      }
+
+      draw();
+    }
+
+    function gameOver() {
+      clearInterval(snakeInterval);
+      snakeInterval = null;
+      if (score > best) {
+        best = score;
+        bestEl.textContent = best;
+        localStorage.setItem('snakeBest', String(best));
+      }
+      overlay.classList.remove('hidden');
+      startBtn.textContent = `🔁 Rejouer (score: ${score})`;
+    }
+
+    function startGame() {
+      resetGame();
+      overlay.classList.add('hidden');
+      draw();
+      if (snakeInterval) clearInterval(snakeInterval);
+      snakeInterval = setInterval(step, 120);
+    }
+
+    startBtn.addEventListener('click', startGame);
+    resetGame();
+    draw();
+
+    if (!snakeKeysBound) {
+      snakeKeysBound = true;
+      window.addEventListener('keydown', (e) => {
+        if (!snakeInterval) return;
+        const key = e.key.toLowerCase();
+        if ((key === 'arrowup' || key === 'z' || key === 'w') && direction !== 'down') nextDirection = 'up';
+        else if ((key === 'arrowdown' || key === 's') && direction !== 'up') nextDirection = 'down';
+        else if ((key === 'arrowleft' || key === 'q' || key === 'a') && direction !== 'right') nextDirection = 'left';
+        else if ((key === 'arrowright' || key === 'd') && direction !== 'left') nextDirection = 'right';
+        else return;
+        e.preventDefault();
+      });
+    }
   }
 });
 
