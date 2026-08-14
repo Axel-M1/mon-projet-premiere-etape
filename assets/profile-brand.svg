@@ -1,0 +1,46 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="30" y1="20" x2="200" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111F"/>
+      <stop offset="1" stop-color="#141E2A"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="74" y1="36" x2="170" y2="196" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17D8FF"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="120" y1="58" x2="120" y2="182" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4D7C3"/>
+      <stop offset="1" stop-color="#D7A98E"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="118" y1="18" x2="118" y2="104" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151B22"/>
+      <stop offset="1" stop-color="#04070A"/>
+    </linearGradient>
+    <linearGradient id="beard" x1="90" y1="120" x2="150" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#211C22"/>
+      <stop offset="1" stop-color="#090C11"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="120" cy="120" r="112" fill="url(#bg)"/>
+  <circle cx="120" cy="120" r="102" stroke="url(#glow)" stroke-width="2" opacity="0.8"/>
+  <circle cx="186" cy="48" r="18" fill="#21D4FD" opacity="0.8"/>
+  <circle cx="62" cy="192" r="16" fill="#7C3AED" opacity="0.75"/>
+
+  <path d="M56 172C60 130 88 104 120 104C152 104 180 130 184 172V190H56V172Z" fill="url(#skin)"/>
+  <path d="M68 150C72 103 93 52 120 52C147 52 168 103 172 150C170 170 159 183 144 191H96C81 183 70 170 68 150Z" fill="url(#hair)"/>
+  <path d="M68 128C80 76 102 48 120 48C138 48 160 76 172 128C170 146 162 158 146 165H94C78 158 70 146 68 128Z" fill="url(#hair)"/>
+
+  <ellipse cx="100" cy="122" rx="10" ry="12" fill="#F8F7F6"/>
+  <ellipse cx="140" cy="122" rx="10" ry="12" fill="#F8F7F6"/>
+  <circle cx="100" cy="124" r="4.5" fill="#171C22"/>
+  <circle cx="140" cy="124" r="4.5" fill="#171C22"/>
+  <path d="M112 140C117 147 122 150 129 150C136 150 140 147 146 140" stroke="#B47A5E" stroke-width="4" stroke-linecap="round"/>
+
+  <path d="M91 168C97 160 107 156 120 156C133 156 143 160 149 168L155 188C157 194 153 200 146 200H94C87 200 83 194 85 188L91 168Z" fill="url(#beard)"/>
+  <path d="M109 170C102 178 98 188 100 198" stroke="#0F1316" stroke-width="4" stroke-linecap="round"/>
+  <path d="M131 170C138 178 142 188 140 198" stroke="#0F1316" stroke-width="4" stroke-linecap="round"/>
+
+  <circle cx="196" cy="62" r="7" fill="#8B5CF6" opacity="0.9"/>
+  <circle cx="52" cy="68" r="6" fill="#22D3EE" opacity="0.8"/>
+</svg>
