@@ -137,18 +137,19 @@ button, a {
 .brand-block {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   padding: 10px 8px;
 }
 
 .brand-avatar-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(148, 163, 184, 0.35);
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(79, 70, 229, 0.18));
   box-shadow: 0 12px 24px rgba(17, 24, 39, 0.15);
+  flex-shrink: 0;
 }
 
 .brand-avatar {
@@ -160,7 +161,7 @@ button, a {
 
 .brand-name {
   font-weight: 800;
-  font-size: 0.92rem;
+  font-size: 1rem;
 }
 
 .brand-block small {
