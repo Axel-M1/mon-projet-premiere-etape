@@ -59,19 +59,27 @@ document.addEventListener('DOMContentLoaded', () => {
     commandLine.innerHTML = `<span style="color: #10b981;">visitor@my-portfolio:~$</span> ${command}`;
     output.appendChild(commandLine);
 
+    lastActionTime = Date.now();
+    pageViews++;
+    document.getElementById('pageViews').textContent = pageViews;
+    document.getElementById('lastAction').textContent = 'À l\'instant';
+
     const response = document.createElement('div');
     const commands = command.toLowerCase().split(' ');
 
     if (commands[0] === 'help') {
-      response.textContent = 'Available commands: help, cv, ping, ansible-playbook, skills, clear';
+      response.textContent = 'Available commands: help, cv, ping, ansible-playbook, skills, clear, whoami';
     } else if (commands[0] === 'cv') {
-      response.innerHTML = 'Name: Axel Moubachir<br>Email: axel.moubachir@ynov.com<br>Formation: BTS SIO SISR • Août 2026';
+      response.innerHTML = 'Name: Axel Moubachir<br>Email: axel.moubachir@ynov.com<br>Formation: BTS SIO SISR • Début 2e année • Août 2026<br>Télécharge le PDF: CV_Axel_Moubachir.pdf';
     } else if (commands[0] === 'ping') {
-      response.textContent = `PING dc01.synaptic.local (10.0.0.5) 56(84) bytes of data.\n64 bytes from dc01: time=2.5ms\nSTATISTICS: 1 packets transmitted, 1 received, 0% loss`;
+      const target = commands[1] || 'dc01.synaptic.local';
+      response.textContent = `PING ${target}\n64 bytes: time=${(Math.random() * 20).toFixed(1)}ms TTL=64`;
     } else if (commands[0] === 'ansible-playbook') {
-      response.innerHTML = '[RUNNING] deploy.yml<br>● installing packages...<br>✓ Deployment successful!';
+      response.innerHTML = '[RUNNING] deploy.yml<br>● task 1: installing packages...<br>● task 2: configuring services...<br>✓ Deployment completed successfully!';
     } else if (commands[0] === 'skills') {
       response.textContent = 'Linux • Samba4 • pfSense • Docker • Ansible • Windows Server • GPO • Zabbix • GLPI • VPN • Monitoring • Automation';
+    } else if (commands[0] === 'whoami') {
+      response.textContent = 'Axel Moubachir - SysAdmin SISR';
     } else if (commands[0] === 'clear') {
       output.innerHTML = '';
       return;
@@ -84,17 +92,67 @@ document.addEventListener('DOMContentLoaded', () => {
     output.scrollTop = output.scrollHeight;
   }
 
-  // Telemetry functionality
+  // Telemetry functionality - ACTIVE REAL-TIME
+  let startTime = Date.now();
+  let pageViews = 1;
+  let lastActionTime = Date.now();
+
   function initTelemetry() {
-    // Simulate visitor data
-    document.getElementById('visitorIP').textContent = '192.168.' + Math.floor(Math.random() * 255) + '.' + Math.floor(Math.random() * 255);
-    document.getElementById('visitorLocation').textContent = 'Paris, France 🇫🇷';
-    document.getElementById('visitorISP').textContent = 'Orange Telecom';
-    document.getElementById('visitorBrowser').textContent = navigator.userAgent.split('(')[0].trim();
-    document.getElementById('visitorOS').textContent = navigator.platform;
-    document.getElementById('visitorRes').textContent = `${window.innerWidth} x ${window.innerHeight}`;
-    document.getElementById('pageViews').textContent = '1';
+    // Fetch real visitor IP and geolocation
+    fetch('https://api.ipify.org?format=json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('visitorIP').textContent = data.ip;
+        // Try to get geolocation from IP
+        fetch(`https://ipapi.co/${data.ip}/json/`)
+          .then(res => res.json())
+          .then(geo => {
+            document.getElementById('visitorLocation').textContent = `${geo.city}, ${geo.country_name} 🌍`;
+            document.getElementById('visitorISP').textContent = geo.org || 'ISP Information';
+          })
+          .catch(() => {
+            document.getElementById('visitorLocation').textContent = 'Localisation détectée 🌍';
+            document.getElementById('visitorISP').textContent = 'FAI détecté';
+          });
+      })
+      .catch(() => {
+        document.getElementById('visitorIP').textContent = 'IP détectée (Local)';
+      });
+
+    // Real browser detection
+    const browserInfo = getBrowserInfo();
+    document.getElementById('visitorBrowser').textContent = browserInfo;
+    document.getElementById('visitorOS').textContent = getOSInfo();
+    document.getElementById('visitorRes').textContent = `${window.innerWidth} × ${window.innerHeight}px`;
+    document.getElementById('pageViews').textContent = pageViews;
     document.getElementById('lastAction').textContent = 'À l\'instant';
+
+    // Update time on site every second
+    setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const mins = Math.floor(elapsed / 60);
+      const secs = elapsed % 60;
+      document.getElementById('visitorTime').textContent = mins > 0 ? `${mins}m ${secs}s` : `${secs}s`;
+    }, 1000);
+  }
+
+  function getBrowserInfo() {
+    const ua = navigator.userAgent;
+    if (ua.indexOf('Chrome') > -1) return 'Chrome ' + ua.match(/Chrome\/([0-9.]+)/)[1];
+    if (ua.indexOf('Safari') > -1 && ua.indexOf('Chrome') === -1) return 'Safari ' + ua.match(/Version\/([0-9.]+)/)[1];
+    if (ua.indexOf('Firefox') > -1) return 'Firefox ' + ua.match(/Firefox\/([0-9.]+)/)[1];
+    if (ua.indexOf('Edge') > -1) return 'Edge ' + ua.match(/Edge\/([0-9.]+)/)[1];
+    return navigator.userAgent.split('(')[0].trim();
+  }
+
+  function getOSInfo() {
+    const ua = navigator.userAgent;
+    if (ua.indexOf('Win') > -1) return 'Windows';
+    if (ua.indexOf('Mac') > -1) return 'macOS';
+    if (ua.indexOf('Linux') > -1) return 'Linux';
+    if (ua.indexOf('Android') > -1) return 'Android';
+    if (ua.indexOf('iPhone') > -1 || ua.indexOf('iPad') > -1) return 'iOS';
+    return navigator.platform;
   }
 
   // Game functionality
