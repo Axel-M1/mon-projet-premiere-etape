@@ -103,10 +103,10 @@
             <div class="panel small-panel">
               <div class="panel-header">
                 <span class="label">CPU / RAM</span>
-                <span class="pill neutral">Live</span>
+                <span class="pill neutral" id="cpuRamPill">Live</span>
               </div>
               <div class="chart-box">
-                <div class="bars">
+                <div class="bars" id="cpuRamBars">
                   <span style="height: 46%"></span>
                   <span style="height: 61%"></span>
                   <span style="height: 75%"></span>
@@ -117,8 +117,8 @@
                 </div>
               </div>
               <div class="chart-legend">
-                <span><i class="dot blue"></i> CPU</span>
-                <span><i class="dot violet"></i> RAM</span>
+                <span><i class="dot blue"></i> CPU <strong id="cpuValue">46%</strong></span>
+                <span><i class="dot violet"></i> RAM <strong id="ramValue">61%</strong></span>
               </div>
             </div>
 

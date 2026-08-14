@@ -466,6 +466,7 @@ button, a {
   display: block;
   border-radius: 12px 12px 0 0;
   background: linear-gradient(180deg, var(--primary), #7da1ff);
+  transition: height 0.6s ease;
 }
 
 .bars span:nth-child(even) {
@@ -478,6 +479,15 @@ button, a {
   margin-top: 12px;
   color: var(--muted);
   font-size: 0.84rem;
+}
+
+.chart-legend strong {
+  color: var(--text);
+  margin-left: 4px;
+}
+
+#cpuRamPill.live-pulse {
+  animation: pulse-glow 1.6s ease-in-out infinite;
 }
 
 .dot {

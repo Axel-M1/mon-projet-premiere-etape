@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     sidebarOverlay.addEventListener('click', closeSidebar);
   }
 
+  initCpuRamMonitor();
+
   // Tab System
   const navItems = document.querySelectorAll('[data-tab]');
   const tabContents = document.querySelectorAll('.tab-content');
@@ -60,9 +62,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // CPU / RAM live monitor - simulated random-walk metrics
+  function initCpuRamMonitor() {
+    const bars = document.querySelectorAll('#cpuRamBars span');
+    const cpuValueEl = document.getElementById('cpuValue');
+    const ramValueEl = document.getElementById('ramValue');
+    const pill = document.getElementById('cpuRamPill');
+    if (!bars.length || !cpuValueEl || !ramValueEl) return;
+
+    // bars alternate CPU (index even) / RAM (index odd) via CSS nth-child coloring
+    const cpuBars = Array.from(bars).filter((_, i) => i % 2 === 0);
+    const ramBars = Array.from(bars).filter((_, i) => i % 2 === 1);
+
+    let cpu = 46;
+    let ram = 61;
+
+    function nextValue(current) {
+      const delta = (Math.random() - 0.5) * 26;
+      return Math.min(94, Math.max(15, Math.round(current + delta)));
+    }
+
+    function render() {
+      cpuValueEl.textContent = `${cpu}%`;
+      ramValueEl.textContent = `${ram}%`;
+      cpuBars.forEach(bar => { bar.style.height = `${cpu}%`; });
+      ramBars.forEach(bar => { bar.style.height = `${ram}%`; });
+    }
+
+    function tick() {
+      cpu = nextValue(cpu);
+      ram = nextValue(ram);
+      render();
+      if (pill) {
+        pill.classList.add('live-pulse');
+        setTimeout(() => pill.classList.remove('live-pulse'), 400);
+      }
+    }
+
+    render();
+    setInterval(tick, 1500);
+  }
+
   // Système OK - functional health check
-  const systemCheckBtn = document.getElementById('systemCheckBtn');
-  const statusDot = document.querySelector('.status-dot');
+  const systemCheckBtn = document.getElementById('systemCheckBtn');  const statusDot = document.querySelector('.status-dot');
   if (systemCheckBtn) {
     systemCheckBtn.addEventListener('click', () => {
       if (systemCheckBtn.disabled) return;
